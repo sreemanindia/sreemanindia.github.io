@@ -1,78 +1,89 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Space+Mono&display=swap');
-
-body {
-  display: grid;
-  place-items: center;
-  font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
-  background: hsl(0 0% 0%);
+* {
+	margin: 0;
+	padding: 0;
 }
-
-body::before {
-	--line: hsl(0 0% 95% / 0.25);
+html, body {
+	overflow: hidden;
+	font-family: sans-serif;
+	font-weight: 100;
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	text-rendering: optimizeLegibility;
+}
+html .content, body .content {
+	text-align: center;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+html .content .random, body .content .random {
+	color: #eee;
+	opacity: 0;
+	display: inline-block;
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	font-weight: 100;
+	cursor: pointer;
+}
+html .social, body .social {
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 600px;
+	text-align: center;
+}
+html .list-item, body .list-item {
+	display: inline-block;
+	width: 110px;
+	text-align: center;
+}
+html .list-item .item-link, body .list-item .item-link {
+	font-size: 12px;
+	text-decoration: none;
+	color: #7F7F7F;
+	transition: .3s ease-out all;
+}
+html .list-item .item-link:focus, body .list-item .item-link:focus {
+	outline: none;
+}
+html .list-item .item-link:after, body .list-item .item-link:after {
 	content: "";
-	height: 100vh;
-	width: 100vw;
-	position: fixed;
-	background:
-		linear-gradient(90deg, var(--line) 1px, transparent 1px 10vmin) 0 -5vmin / 10vmin 10vmin,
-		linear-gradient(var(--line) 1px, transparent 1px 10vmin) 0 -5vmin / 10vmin 10vmin;
-	mask: linear-gradient(-15deg, transparent 30%, white);
-  top: 0;
-	z-index: -1;
+	position: relative;
+	width: 0;
+	height: 1px;
+	display: block;
+	z-index: 100;
+	background-color: cyan;
+	transition: .3s ease-out all;
+	left: 50%;
+	top: 5px;
+	transform: translateX(-50%);
+}
+html .list-item .item-link:hover, body .list-item .item-link:hover {
+	color: #eee;
+	cursor: help;
+}
+html .list-item .item-link:hover:after, body .list-item .item-link:hover:after {
+	width: 50px;
+}
+.randomCharacter {
+	display: inline-block;
+	height: 10px;
 }
 
-
-
-@keyframes loop {
-  0% { transform: translate3D( 0%, 51%, 0 ) rotate(0deg); }
-  5% { transform: translate3D( 8%, 31%, 0 ) rotate(18deg); }
-  10% { transform: translate3D( 22%, 13%, 0 ) rotate(36deg); }
-  15% { transform: translate3D( 40%, 2%, 0 ) rotate(54deg); }
-  20% { transform: translate3D( 46%, 21%, 0 ) rotate(72deg); }
-  25% { transform: translate3D( 50%, 47%, 0 ) rotate(90deg); }
-  30% { transform: translate3D( 53%, 80%, 0 ) rotate(108deg); }
-  35% { transform: translate3D( 59%, 98%, 0 ) rotate(125deg); }
-  40% { transform: translate3D( 84%, 89%, 0 ) rotate(144deg); }
-  45% { transform: translate3D( 92%, 68%, 0 ) rotate(162deg); }
-  50% { transform: translate3D( 99%, 47%, 0 ) rotate(180deg); }
-  55% { transform: translate3D( 97%, 21%, 0 ) rotate(198deg); }
-  60% { transform: translate3D( 80%, 7%, 0 ) rotate(216deg); }
-  65% { transform: translate3D( 68%, 25%, 0 ) rotate(234deg); }
-  70% { transform: translate3D( 59%, 41%, 0 ) rotate(251deg); }
-  75% { transform: translate3D( 50%, 63%, 0 ) rotate(270deg); }
-  80% { transform: translate3D( 38%, 78%, 0 ) rotate(288deg); }
-  85% { transform: translate3D( 21%, 92%, 0 ) rotate(306deg); }
-  90% { transform: translate3D( 3%, 79%, 0 ) rotate(324deg); }
-  100% { transform: translate3D( 0%, 51%, 0 ) rotate(360deg); }
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	padding: 5rem;
+  }
   
-}
-
-.glow-container {
-  overflow-x:hidden;
-  overflow-y: hidden;
-  position:fixed;
-  
-  width:100%;
-  min-height:100vh;
-}
-
-#circle {
-  position:absolute;
- text-shadow: 2px 2px 50px #ffdc82; transform:translate(-50%,-50%);
-  height:100px;
-  width:100px;
-  border-radius:90%;
-}
-
-#circle:hover {
-  position:absolute;
- text-shadow: 2px 2px 50px #ffdc82; transform:translate(-50%,-50%);
-  height:100px;
-  width:100px;
-  border-radius:90%;
-  cursor: none;
-}
-
-h1 {
-  font-size: 1em;
-}
+  .heading {
+	color: #eee;
+	font-size: 16px;
+	font-weight: 150;
+	text-transform: uppercase;
+  }
